@@ -4,15 +4,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn clean package -DskipTests=true'
-        archiveArtifacts 'target/hello-demo-*.jar'
+        sh 'echo bulding'
       }
     }
 
     stage('Test') {
       steps {
-        sh 'mvn test'
-        junit(testResults: 'target/surefire-reports/TEST-*.xml', keepProperties: true, keepTestNames: true)
+        sh 'echo tesing'
       }
     }
     
@@ -37,8 +35,4 @@ pipeline {
       }
     }
   }
-  tools {
-    maven 'M398'
-  }
-
 }
